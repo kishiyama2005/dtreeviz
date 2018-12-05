@@ -205,8 +205,8 @@ def rtreeviz_bivar_heatmap(ax, X_train, y_train, max_depth, feature_names,
     x, y, z = X_train[:,0], X_train[:,1], y_train
     ax.scatter(x, y, marker='o', alpha=.95, c=colors, edgecolor=GREY, lw=.3)
 
-    ax.set_xlabel(f"{feature_names[0]}", fontsize=fontsize, fontname="Arial", color=GREY)
-    ax.set_ylabel(f"{feature_names[1]}", fontsize=fontsize, fontname="Arial", color=GREY)
+    ax.set_xlabel(f"{feature_names[0]}", fontsize=fontsize, color=GREY)
+    ax.set_ylabel(f"{feature_names[1]}", fontsize=fontsize, color=GREY)
 
     ax.tick_params(axis='both', which='major', width=.3, labelcolor=GREY, labelsize=ticks_fontsize)
 
@@ -265,9 +265,9 @@ def rtreeviz_bivar_3D(ax, X_train, y_train, max_depth, feature_names, target_nam
     x, y, z = X_train[:, 0], X_train[:, 1], y_train
     ax.scatter(x, y, z, marker='o', alpha=.7, edgecolor=GREY, lw=.3, c=colors)
 
-    ax.set_xlabel(f"{feature_names[0]}", fontsize=fontsize, fontname="Arial", color=GREY)
-    ax.set_ylabel(f"{feature_names[1]}", fontsize=fontsize, fontname="Arial", color=GREY)
-    ax.set_zlabel(f"{target_name}", fontsize=fontsize, fontname="Arial", color=GREY)
+    ax.set_xlabel(f"{feature_names[0]}", fontsize=fontsize, color=GREY)
+    ax.set_ylabel(f"{feature_names[1]}", fontsize=fontsize, color=GREY)
+    ax.set_zlabel(f"{target_name}", fontsize=fontsize, color=GREY)
 
     ax.tick_params(axis='both', which='major', width=.3, labelcolor=GREY, labelsize=ticks_fontsize)
 
@@ -303,7 +303,7 @@ def ctreeviz_univar(ax, x_train, y_train, max_depth, feature_name, class_names,
     colors = {v: color_values[i] for i, v in enumerate(class_values)}
     X_colors = [colors[cl] for cl in class_values]
 
-    ax.set_xlabel(f"{feature_name}", fontsize=fontsize, fontname="Arial",
+    ax.set_xlabel(f"{feature_name}", fontsize=fontsize,
                   color=GREY)
     ax.spines['top'].set_visible(False)
     ax.spines['right'].set_visible(False)
@@ -424,8 +424,8 @@ def ctreeviz_bivar(ax, X_train, y_train, max_depth, feature_names, class_names,
         ax.scatter(h[:,0], h[:,1], alpha=1, marker='o', s=dot_w, c=colors[i],
                    edgecolors=GREY, lw=.3)
 
-    ax.set_xlabel(f"{feature_names[0]}", fontsize=fontsize, fontname="Arial", color=GREY)
-    ax.set_ylabel(f"{feature_names[1]}", fontsize=fontsize, fontname="Arial", color=GREY)
+    ax.set_xlabel(f"{feature_names[0]}", fontsize=fontsize, color=GREY)
+    ax.set_ylabel(f"{feature_names[1]}", fontsize=fontsize, color=GREY)
     ax.spines['top'].set_visible(False)
     ax.spines['right'].set_visible(False)
     ax.spines['bottom'].set_linewidth(.3)
@@ -834,7 +834,7 @@ def class_split_viz(node: ShadowDecTreeNode,
     overall_feature_range_wide = (overall_feature_range[0]-overall_feature_range[0]*.08,
                                   overall_feature_range[1]+overall_feature_range[1]*.05)
 
-    ax.set_xlabel(f"{feature_name}", fontsize=label_fontsize, fontname="Arial",
+    ax.set_xlabel(f"{feature_name}", fontsize=label_fontsize,
                   color=GREY)
     ax.spines['top'].set_visible(False)
     ax.spines['right'].set_visible(False)
@@ -937,11 +937,11 @@ def regr_split_viz(node: ShadowDecTreeNode,
 
     feature_name = node.feature_name()
 
-    ax.set_xlabel(f"{feature_name}", fontsize=label_fontsize, fontname="Arial", color=GREY)
+    ax.set_xlabel(f"{feature_name}", fontsize=label_fontsize, color=GREY)
 
     ax.set_ylim(y_range)
     if node==node.shadow_tree.root:
-        ax.set_ylabel(target_name, fontsize=label_fontsize, fontname="Arial", color=GREY)
+        ax.set_ylabel(target_name, fontsize=label_fontsize, color=GREY)
 
     ax.spines['top'].set_visible(False)
     ax.spines['right'].set_visible(False)
@@ -1027,7 +1027,7 @@ def regr_leaf_viz(node : ShadowDecTreeNode,
     ax.annotate(f"{target_name}={myround(m,precision)}\nn={len(y)}",
                 xy=(.5, 0), xytext=(.5, -.5*ticklabelpad), ha='center', va='top',
                 xycoords='axes fraction', textcoords='offset points',
-                fontsize = label_fontsize, fontname = "Arial", color = GREY)
+                fontsize = label_fontsize, color = GREY)
 
     ax.tick_params(axis='y', which='major', width=.3, labelcolor=GREY, labelsize=ticks_fontsize)
 
@@ -1118,7 +1118,7 @@ def draw_piechart(counts,size,colors,filename,label=None):
         ax.text(size/2-6*tweak, -10*tweak, label,
                 horizontalalignment='center',
                 verticalalignment='top',
-                fontsize=9, color=GREY, fontname="Arial")
+                fontsize=9, color=GREY)
 
     # plt.tight_layout()
     plt.savefig(filename, bbox_inches='tight', pad_inches=0)
